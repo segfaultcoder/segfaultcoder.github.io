@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Mirrored from descubre.inf.um.es/curso.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Feb 2020 14:49:39 GMT -->
+<head>
+	<title>Descubre la Programación</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Explora, aprende y crea tus propios programas" />
+	<meta name="author" content="Facultad de Informática, Universidad de Murcia"  />
+	<meta name="language" content="Spanish" />	
+
+<link rel="stylesheet" href="css/morris.css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="js/vendor/raphael-2.1.2/raphael-min.js"></script>
+<script src="js/vendor/morris-0.5.2/morris.min.js"></script>
+<script src="js/vendor/highlight/highlight.pack.js"></script>
+
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/glyphicon.css">
+	<link href="css/bootstrap-datepicker.min.css" rel="stylesheet">
+	<link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+	<link href="js/vendor/highlight/styles/vs.css" rel="stylesheet">
+	
+	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.es.min.js"></script>
+	<script type="text/javascript" src="js/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+	<script src="js/vendor/sortable-1.4.2/Sortable.min.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/descubre.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+body {
+	background: #FFF7E2; 
+}
+
+/* navbar */
+.navbar {
+	background: #0C3844;		
+	border:none;
+	height:60px;
+}
+/* title */
+.navbar .navbar-brand {
+    color: #FFF;
+	padding:0;
+	margin:0;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+    color: #FFF;
+}
+/* link */
+.navbar .navbar-nav > li > a {
+    color: #EEE;
+    background: #0C3844;
+    z-index:100;
+	font-size:16px;
+	padding-top:25px;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+    color: #EEE;
+    text-shadow: 1px 1px #000;
+    background-color: #9F69A2;
+    height:64px;
+}
+.navbar .navbar-nav > .active > a, 
+.navbar .navbar-nav > .active > a:hover, 
+.navbar .navbar-nav > .active > a:focus {
+    color: #EEE;
+    text-shadow: 1px 1px #000;
+    background-color: #8B3290; /* #27b2dd; */
+    height:64px;
+}
+.navbar .navbar-nav > .open > a, 
+.navbar .navbar-nav > .open > a:hover, 
+.navbar .navbar-nav > .open > a:focus {
+    color: #EEE;
+    text-shadow: 1px 1px #000;
+    background-color: #27b2dd;
+    height:64px;
+}
+/* caret */
+.navbar .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+	.carousel h3 {
+		color: #9D0523;
+		background-color:rgba(240,240,240, 0.95);
+		padding:8px 8px;
+		text-align: right;
+		font-size: 20px;
+	}
+	
+	carousel p {
+		color: #9D0523;
+		background-color:rgba(240,240,240, 0.95);
+	}
+	
+	.carousel-inner > .item > img {
+	  margin: 0 auto;
+	  max-width:100%;
+	  height:auto;
+	}
+
+/**** EITK ****/
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+}
+/* Footer --------------------------------------------------------------------------- */
+
+.footer {
+	background-color: #0c3844;
+	font-size:0.9em;
+	color: #FFF;
+	height:192px;
+	padding-top:16px;
+}
+.footer a {
+	color: #fff;
+}
+
+
+
+</style>
+</head>
+<body><!-- Static navbar -->
+
+ <!-- Static navbar -->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">
+		<img alt="Descubre la programación" src="images/descubre_logo.png">
+<!--      	
+ -->
+      </a>
+<!--	  
+ -->
+	<p class="navbar-text navbar-left">
+	  <a href="mailto:descubrelainformatica@um.es" class="navbar-link"><img alt="" src="images/email-recto.png" ></a>
+	  <a href="https://twitter.com/descubreinfum" class="navbar-link"><img alt="" src="images/twitter.png" ></a>
+	 </p>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-collapse collapse" id="main-menu" >
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li ><a href="explora.html">Explora <span class="sr-only">(current)</span></a></li>
+        <li ><a href="aprende.html">Aprende</a></li>
+        <li ><a href="editor-codigo.html">Crea</a></li>
+        <li ><a href="retos.html">Retos</a></li>
+		<li class="" data-toggle="tooltip" data-placement="bottom" title="Acceder"><a href="loginc0d3.html?origin=curso.php"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav><div class="container-fluid">
+	<div class="apage-header  col-md-offset-2 col-md-8">
+	  <h1>Aprende <small>a programar desde cero, nuestro curso está organizado en sencillas lecciones que te irán enseñando la programación paso a paso.</small></h1>
+	</div>
+	
+	<div class="list-group col-md-offset-2 col-md-8" id="tema0">
+		<div class="list-group-item active">
+			<h4 class="list-group-item-heading">0. Introdución</h4>
+			<p class="list-group-item-text">En esta primera lección os damos la bienvenida y os explicamos un poco lo que vamos a ver en el resto de vídeos. También tenéis un enlace al manual completo del lenguaje de programación iJava.</p>
+		</div>
+		<a href="temaff5d.html?id=0" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Introducción</a>
+		<a href="lenguaje.html" class="list-group-item"><span class="glyphicon glyphicon-file"></span> Guía del lenguaje</a>
+	</div>
+
+	<div class="list-group col-md-offset-2 col-md-8" id="tema1">
+		<div class="list-group-item active">
+			<h4 class="list-group-item-heading">1. Haciendo dibujos</h4>
+			<p class="list-group-item-text">En estos primeros vídeos aprenderás a hacer tus primeros programas dibujando en la pantalla de tu ordenador. Aprenderás a dibujar el personaje de tu propio videojuego.</p>
+		</div>
+		<a href="tema681a.html?id=1" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Tu primer programa</a>
+		<a href="tema0b30.html?id=2" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Un oso enmarcado</a>
+		<a href="temad708.html?id=3" class="list-group-item"><span class="glyphicon glyphicon-play"></span> La bandera olímpica</a>
+		<a href="temadcfd.html?id=4" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Coloreando la bandera</a>
+		<a href="temad61c.html?id=5" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Colores RGB</a>		
+		<a href="lenguaje-01.html" class="list-group-item"><span class="glyphicon glyphicon-file"></span> El entorno de programación y las funciones predefinidas.</a>		
+	</div>
+	
+	<div class="list-group col-md-offset-2 col-md-8" id="tema2">
+		<div class="list-group-item active">
+			<h4 class="list-group-item-heading">2. Moviendo los dibujos</h4>
+			<p class="list-group-item-text">Para hacer un videojuego hay que aprender a dibujar los personajes por toda la pantalla. En estos vídeos aprenderás cómo hacerlo gracias a las variables.</p>
+		</div>
+		<a href="tema3a9f.html?id=6" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Dibujando una nave en cualquier parte de la pantalla</a>
+		<a href="tema8803.html?id=7" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Modificando el tamaño de la nave</a>
+		<a href="temac3c9.html?id=8" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Las variables en los juegos</a>
+		<a href="tema5255.html?id=9" class="list-group-item"><span class="glyphicon glyphicon-play"></span> La función "nave"</a>
+		<a href="temaf41b.html?id=10" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Funciones propias con parámetros</a>
+		<a href="lenguaje-02.html" class="list-group-item"><span class="glyphicon glyphicon-file"></span> Variables, constantes y entrada de datos.</a>		
+	</div>
+	
+	<div class="list-group col-md-offset-2 col-md-8" id="tema3">
+		<div class="list-group-item active">
+			<h4 class="list-group-item-heading">3. Simplificando las tareas repetitivas</h4>
+			<p class="list-group-item-text">En estos vídeos aprenderás como hacer que el ordenador repita tus instrucciones tantas veces como sea necesario. Veremos cómo dibujar el escenario de una forma fácil y rápida.</p>
+		</div>
+		<a href="tema0055.html?id=11" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Dibujando cientos de estrellas</a>
+		<a href="tema4ef9.html?id=12" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Dibujando círculos concéntricos</a>
+		<a href="tema6e03.html?id=13" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Dibujando un tablero de ajedrez</a>
+		<a href="tema87f1.html?id=14" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Rellenando un tablero con 100 naves</a>
+		<a href="tema7429.html?id=15" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Dibujando una flota de enemigos</a>
+		<a href="lenguaje-03.html" class="list-group-item"><span class="glyphicon glyphicon-file"></span> Introducción a las animaciones y a los Bucles.</a>		
+	</div>
+
+	<div class="list-group col-md-offset-2 col-md-8" id="tema4">
+		<div class="list-group-item active">
+			<h4 class="list-group-item-heading">4. Haciendo que el ordenador decida</h4>
+			<p class="list-group-item-text">En estos vídeos aprenderás como hacer que el ordenador tome decisiones. Esto es muy útil, por ejemplo, para que los personajes de tu juego sepan hacia donde moverse.</p>
+		</div>
+		<a href="tema2728.html?id=16" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Animando nuestra nave</a>
+		<a href="tema190a.html?id=17" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Disparando el laser con el ratón</a>
+		<a href="temae371.html?id=18" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Animando una pelota que rebota</a>
+		<a href="temaa9bc.html?id=19" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Disparando proyectiles</a>
+		<a href="temae5cc.html?id=20" class="list-group-item"><span class="glyphicon glyphicon-play"></span> Detectando colisiones entre balas y enemigos</a>
+		<a href="lenguaje-04.html" class="list-group-item"><span class="glyphicon glyphicon-file"></span> Condiciones y bucles con condición.</a>		
+	</div>
+
+	<div class="list-group col-md-offset-2 col-md-8" id="tema5">
+		<div class="list-group-item active">
+			<h4 class="list-group-item-heading">5. Usando listas y tablas</h4>
+			<p class="list-group-item-text">En este apartado aprenderás cómo utilizar variables que puedan almacenar muchos datos. Esto puede servirte para conseguir simular el movimiento de las estrellas del fondo de tu videojuego.</p>
+		</div>
+		<a href="lenguaje-05.html" class="list-group-item"><span class="glyphicon glyphicon-file"></span> Arrays simples y multidimensionales.</a>		
+	</div>
+
+	<div class="list-group col-md-offset-2 col-md-8" id="tema6">
+		<div class="list-group-item active">
+			<h4 class="list-group-item-heading">6. Controla tus personajes</h4>
+			<p class="list-group-item-text">En este apartado aprenderás cómo controlar el movimiento de los personajes de tu videojuego a través del teclado y el ratón.</p>
+		</div>
+		<a href="lenguaje-06.html" class="list-group-item"><span class="glyphicon glyphicon-file"></span> Control de teclado y Ratón.</a>		
+	</div>
+
+	<div class="list-group col-md-offset-2 col-md-8" id="tema7">
+		<div class="list-group-item active">
+			<h4 class="list-group-item-heading">7. Jugando con el texto</h4>
+			<p class="list-group-item-text">En algunos tipos de juegos tendrás que manejar texto, por ejemplo para el ahorcado, sopas de letras, etc. En este apartado aprenderás a trabajar con texto en tu programa.</p>
+		</div>
+		<a href="lenguaje-07.html" class="list-group-item"><span class="glyphicon glyphicon-file"></span> Funciones para manejar texto.</a>		
+	</div>
+
+<!--
+	<div class="jumbotron">
+	  <h1>Aprende</h1>
+	  <p>Nuestro curso está organizado en sencillas lecciones que te irán enseñando la programación paso a paso</p>
+	  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+	</div>
+-->
+			
+</div>
+		&nbsp;
+		<div class="container-fluid footer">
+			<div class="row">
+				<div class="col-md-6">
+					<a href="http://www.um.es/"><img src="images/logo_umu.png" height="54"  title="Universidad de Murcia"/></a>              
+					<a href="http://www.um.es/informatica/"><img src="images/logo_fi.png" height="54"  title="Facultad de Inform&aacute;tica de la Universidad de Murcia"/> </a>
+					<a href="http://olimpiada.inf.um.es/"><img src="images/logo_oirm.png" height="54" title="Olimpiada Inform&aacute;tica de la Regi&oacute;n de Murcia"/></a>
+				</div>		
+				<div class="col-md-6">
+					<p class="pull-right">
+						<a href="explora.html">Explora</a>&nbsp;&nbsp;&Iota;&nbsp;&nbsp;
+						<a href="aprende.html">Aprende</a>&nbsp;&nbsp;&Iota;&nbsp;&nbsp;
+						<a href="editor-codigo.html">Crea</a>&nbsp;&nbsp;&Iota;&nbsp;&nbsp;
+						<a href="retos.html">Retos</a>&nbsp;&nbsp;&Iota;&nbsp;&nbsp;
+						<a href="el-proyecto.html">El Proyecto</a>&nbsp;&nbsp;&Iota;&nbsp;&nbsp;
+						<a href="terminos-y-condiciones.html">T&eacute;rminos y condiciones</a>&nbsp;&nbsp;&Iota;&nbsp;&nbsp;
+						<a href="politica-privacidad.html">Pol&iacute;tica de privacidad</a>
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<p class="pull-right">&#169; 2015 Universidad de Murcia - Facultad de Inform&aacute;tica</p>				
+				</div>
+			</div>
+		</div>
+	    <script>
+		$(document).ready(
+		function() {
+			$('[data-toggle="tooltip"]').tooltip()
+		});
+	    </script>
+	</body>
+<script>
+</script>
+
+<!-- Mirrored from descubre.inf.um.es/curso.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Feb 2020 14:49:39 GMT -->
+</html>

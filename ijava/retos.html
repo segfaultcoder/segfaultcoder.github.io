@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Mirrored from descubre.inf.um.es/retos.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Feb 2020 14:49:38 GMT -->
+<head>
+	<title>Descubre la Programación : Retos </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Tenemos muchos retos esperándote, resuélvelos todos" />
+	<meta name="author" content="Facultad de Informática, Universidad de Murcia"  />
+	<meta name="language" content="Spanish" />	
+
+<link rel="stylesheet" href="css/morris.css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="js/vendor/raphael-2.1.2/raphael-min.js"></script>
+<script src="js/vendor/morris-0.5.2/morris.min.js"></script>
+<script src="js/vendor/highlight/highlight.pack.js"></script>
+
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/glyphicon.css">
+	<link href="css/bootstrap-datepicker.min.css" rel="stylesheet">
+	<link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+	<link href="js/vendor/highlight/styles/vs.css" rel="stylesheet">
+	
+	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.es.min.js"></script>
+	<script type="text/javascript" src="js/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+	<script src="js/vendor/sortable-1.4.2/Sortable.min.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/descubre.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+body {
+	background: #FFF7E2; 
+}
+
+/* navbar */
+.navbar {
+	background: #0C3844;		
+	border:none;
+	height:60px;
+}
+/* title */
+.navbar .navbar-brand {
+    color: #FFF;
+	padding:0;
+	margin:0;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+    color: #FFF;
+}
+/* link */
+.navbar .navbar-nav > li > a {
+    color: #EEE;
+    background: #0C3844;
+    z-index:100;
+	font-size:16px;
+	padding-top:25px;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+    color: #EEE;
+    text-shadow: 1px 1px #000;
+    background-color: #9F69A2;
+    height:64px;
+}
+.navbar .navbar-nav > .active > a, 
+.navbar .navbar-nav > .active > a:hover, 
+.navbar .navbar-nav > .active > a:focus {
+    color: #EEE;
+    text-shadow: 1px 1px #000;
+    background-color: #8B3290; /* #27b2dd; */
+    height:64px;
+}
+.navbar .navbar-nav > .open > a, 
+.navbar .navbar-nav > .open > a:hover, 
+.navbar .navbar-nav > .open > a:focus {
+    color: #EEE;
+    text-shadow: 1px 1px #000;
+    background-color: #27b2dd;
+    height:64px;
+}
+/* caret */
+.navbar .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+	.carousel h3 {
+		color: #9D0523;
+		background-color:rgba(240,240,240, 0.95);
+		padding:8px 8px;
+		text-align: right;
+		font-size: 20px;
+	}
+	
+	carousel p {
+		color: #9D0523;
+		background-color:rgba(240,240,240, 0.95);
+	}
+	
+	.carousel-inner > .item > img {
+	  margin: 0 auto;
+	  max-width:100%;
+	  height:auto;
+	}
+
+/**** EITK ****/
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+}
+/* Footer --------------------------------------------------------------------------- */
+
+.footer {
+	background-color: #0c3844;
+	font-size:0.9em;
+	color: #FFF;
+	height:192px;
+	padding-top:16px;
+}
+.footer a {
+	color: #fff;
+}
+
+
+
+</style>
+</head>
+<body><!-- Static navbar -->
+
+ <!-- Static navbar -->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">
+		<img alt="Descubre la programación" src="images/descubre_logo.png">
+<!--      	
+ -->
+      </a>
+<!--	  
+ -->
+	<p class="navbar-text navbar-left">
+	  <a href="mailto:descubrelainformatica@um.es" class="navbar-link"><img alt="" src="images/email-recto.png" ></a>
+	  <a href="https://twitter.com/descubreinfum" class="navbar-link"><img alt="" src="images/twitter.png" ></a>
+	 </p>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-collapse collapse" id="main-menu" >
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li ><a href="explora.html">Explora <span class="sr-only">(current)</span></a></li>
+        <li ><a href="aprende.html">Aprende</a></li>
+        <li ><a href="editor-codigo.html">Crea</a></li>
+        <li class="active"><a href="retos.html">Retos</a></li>
+		<li class="" data-toggle="tooltip" data-placement="bottom" title="Acceder"><a href="login307a.html?origin=retos.php"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav><div class="container-fluid">
+	<div class="page-header">
+	  <h1>Resuelve <small> los retos planteados y participa en los concursos organizados por la Facultad de Informática de la Universidad de Murcia</small></h1>
+	</div>
+	<div class="col-md-12">
+				<div class="list-group">
+			<a href="login1bf3.html?id=0fc40f3705fa47253066e9ef0dc3e932" class="list-group-item active list-group-item-primary">
+				<h4 class="list-group-item-heading">Problemas OIRM 2014</h4>
+			</a>
+			<p class="list-group-item">
+				Este reto de preparación para la olimpiada incluye algunos problemas de la olimpiada 2014				<div class="form-group text-info list-group-item">
+					<span class="glyphicon glyphicon-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Fecha de inicio del reto"> 07/10/2014 15:51</span>
+					&nbsp;
+
+					
+					<span class="glyphicon glyphicon-user pull-right" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="participantes"> 100</span> 
+				</div>
+			</p>
+		</div>
+		<div class="list-group">
+			<a href="logina8b4.html?id=a08cc1de83889e2e02955beb55aaae84" class="list-group-item active list-group-item-primary">
+				<h4 class="list-group-item-heading">Problemas OIRM 2015</h4>
+			</a>
+			<p class="list-group-item">
+				Este reto de preparación para la olimpiada incluye algunos problemas de la olimpiada 2015				<div class="form-group text-info list-group-item">
+					<span class="glyphicon glyphicon-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Fecha de inicio del reto"> 04/11/2015 04:46</span>
+					&nbsp;
+
+					
+					<span class="glyphicon glyphicon-user pull-right" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="participantes"> 69</span> 
+				</div>
+			</p>
+		</div>
+		<div class="list-group">
+			<a href="loginfb0d.html?id=341defb82f62f95ab8fa47f7414bc0b0" class="list-group-item active list-group-item-primary">
+				<h4 class="list-group-item-heading">Problemas Maraton CodeWeek 2015</h4>
+			</a>
+			<p class="list-group-item">
+				Practica con los problemas que se usaron en la maratón de la CodeWeek 2014				<div class="form-group text-info list-group-item">
+					<span class="glyphicon glyphicon-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Fecha de inicio del reto"> 04/11/2015 08:11</span>
+					&nbsp;
+
+					
+					<span class="glyphicon glyphicon-user pull-right" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="participantes"> 103</span> 
+				</div>
+			</p>
+		</div>
+		<div class="list-group">
+			<a href="login0a53.html?id=1b7bd2ec99f9bc4070844fcdb6f64714" class="list-group-item active list-group-item-primary">
+				<h4 class="list-group-item-heading">Problemas OIRM 2016</h4>
+			</a>
+			<p class="list-group-item">
+				Este reto de preparación para la olimpiada incluye los problemas de la olimpiada 2016				<div class="form-group text-info list-group-item">
+					<span class="glyphicon glyphicon-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Fecha de inicio del reto"> 14/03/2016 16:40</span>
+					&nbsp;
+
+					
+					<span class="glyphicon glyphicon-user pull-right" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="participantes"> 122</span> 
+				</div>
+			</p>
+		</div>
+		<div class="list-group">
+			<a href="login849c.html?id=134a06d494de62caa9ff358b7e6b3449" class="list-group-item active list-group-item-primary">
+				<h4 class="list-group-item-heading">Problemas OIRM 2017</h4>
+			</a>
+			<p class="list-group-item">
+				Este reto de preparación para la olimpiada incluye los problemas de la olimpiada 2017				<div class="form-group text-info list-group-item">
+					<span class="glyphicon glyphicon-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Fecha de inicio del reto"> 12/04/2018 09:19</span>
+					&nbsp;
+
+					
+					<span class="glyphicon glyphicon-user pull-right" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="participantes"> 75</span> 
+				</div>
+			</p>
+		</div>
+		<div class="list-group">
+			<a href="login3b4c.html?id=7f901d34698fd6cbd43c9d72cd69fa1c" class="list-group-item active list-group-item-primary">
+				<h4 class="list-group-item-heading">Problemas OIRM 2018</h4>
+			</a>
+			<p class="list-group-item">
+				Este reto de preparación para la olimpiada incluye los problemas de la olimpiada 2018				<div class="form-group text-info list-group-item">
+					&nbsp;
+
+					
+					<span class="glyphicon glyphicon-user pull-right" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="participantes"> 35</span> 
+				</div>
+			</p>
+		</div>
+		<div class="list-group">
+			<a href="loginbb28.html?id=79342c423f557ee9888ab56021bdf3e8" class="list-group-item active list-group-item-primary">
+				<h4 class="list-group-item-heading">Problemas OIRM 2019</h4>
+			</a>
+			<p class="list-group-item">
+				Este reto de preparación para la olimpiada incluye los problemas de la olimpiada 2019<br/>				<div class="form-group text-info list-group-item">
+					&nbsp;
+
+					
+					<span class="glyphicon glyphicon-user pull-right" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="participantes"> 39</span> 
+				</div>
+			</p>
+		</div>
+	</div>
+</div>
+		&nbsp;
+		<div class="container-fluid footer">
+			<div class="row">
+				<div class="col-md-6">
+					<a href="http://www.um.es/"><img src="images/logo_umu.png" height="54"  title="Universidad de Murcia"/></a>              
+					<a href="http://www.um.es/informatica/"><img src="images/logo_fi.png" height="54"  title="Facultad de Inform&aacute;tica de la Universidad de Murcia"/> </a>
+					<a href="http://olimpiada.inf.um.es/"><img src="images/logo_oirm.png" height="54" title="Olimpiada Inform&aacute;tica de la Regi&oacute;n de Murcia"/></a>
+				</div>		
+				<div class="col-md-6">
+					<p class="pull-right">
+						<a href="explora.html">Explora</a>&nbsp;&nbsp;&Iota;&nbsp;&nbsp;
+						<a href="aprende.html">Aprende</a>&nbsp;&nbsp;&Iota;&nbsp;&nbsp;
+						<a href="editor-codigo.html">Crea</a>&nbsp;&nbsp;&Iota;&nbsp;&nbsp;
+						<a href="retos.html">Retos</a>&nbsp;&nbsp;&Iota;&nbsp;&nbsp;
+						<a href="el-proyecto.html">El Proyecto</a>&nbsp;&nbsp;&Iota;&nbsp;&nbsp;
+						<a href="terminos-y-condiciones.html">T&eacute;rminos y condiciones</a>&nbsp;&nbsp;&Iota;&nbsp;&nbsp;
+						<a href="politica-privacidad.html">Pol&iacute;tica de privacidad</a>
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<p class="pull-right">&#169; 2015 Universidad de Murcia - Facultad de Inform&aacute;tica</p>				
+				</div>
+			</div>
+		</div>
+	    <script>
+		$(document).ready(
+		function() {
+			$('[data-toggle="tooltip"]').tooltip()
+		});
+	    </script>
+	</body>
+<script>
+</script>
+
+<!-- Mirrored from descubre.inf.um.es/retos.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Feb 2020 14:49:39 GMT -->
+</html>

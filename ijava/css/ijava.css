@@ -1,0 +1,10 @@
+.CodeMirror {
+  /* Set height, width, borders, and global font properties here */
+  font-family: 'Courier new', monospace;
+}
+div.CodeMirror span.CodeMirror-matchingbracket {color: #070; font-weight: bold;}
+div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #722; font-weight: bold;}
+
+.CodeMirror-lint-tooltip {
+  text-align: left;
+}

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Mirrored from descubre.inf.um.es/editor-codigo.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Feb 2020 14:49:38 GMT -->
+<head>
+	<title>Descubre la Programación : Muestra </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Muestra tus programas sin salir del navegador" />
+	<meta name="author" content="Facultad de Informática, Universidad de Murcia"  />
+	<meta name="language" content="Spanish" />	
+	<script src="js/ijava/iJavaLexer.js" type= "text/javascript"></script>    
+	<script src="js/ijava/iJavaParser.js" type= "text/javascript"></script>    
+	<script src="js/ijava/iJavaSemantic.js" type= "text/javascript"></script>    
+	<script src="js/ijava/iJava2Javascript.js" type= "text/javascript"></script>    
+	<script src="js/ijava/Environment.js" type= "text/javascript"></script>    
+	<script src="js/ijava/Datatype.js" type= "text/javascript"></script>    
+	<script src="js/ijava/OOSupport.js" type="text/javascript"></script>                
+	<script src="js/ijava/iJavaSandbox.js" type="text/javascript"></script>                
+	<script src="js/ijava/iJavaSandboxTest.js" type="text/javascript"></script>                
+	<script src="js/ijava/iJavaCompiler.js" type="text/javascript"></script>                
+	<script src="js/ijava/iJavaEditor.js" type= "text/javascript"></script>    
+	<script src="js/ijava/iJavaViewer.js" type= "text/javascript"></script>    
+	
+	<link rel="stylesheet" href="css/codemirror.css">
+	<link rel="stylesheet" href="css/lint.css">
+	<link rel="stylesheet" href="css/neat.css">
+	<link rel="stylesheet" href="js/vendor/spectrum/spectrum.css">
+	<link rel="stylesheet" href="css/ijava.css">
+
+	<script src="js/vendor/codemirror/codemirror.js"></script>
+	<script src="js/vendor/codemirror/matchbrackets.js"></script>
+	<script src="js/vendor/codemirror/closebrackets.js"></script>
+	<script src="js/vendor/codemirror/active-line.js"></script>
+	<script src="js/vendor/codemirror/ijava.js"></script>
+	<script src="js/vendor/codemirror/lint.js"></script>
+
+<link rel="stylesheet" href="css/morris.css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="js/vendor/raphael-2.1.2/raphael-min.js"></script>
+<script src="js/vendor/morris-0.5.2/morris.min.js"></script>
+<script src="js/vendor/highlight/highlight.pack.js"></script>
+
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/glyphicon.css">
+	<link href="css/bootstrap-datepicker.min.css" rel="stylesheet">
+	<link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+	<link href="js/vendor/highlight/styles/vs.css" rel="stylesheet">
+	
+	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.es.min.js"></script>
+	<script type="text/javascript" src="js/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+	<script src="js/vendor/sortable-1.4.2/Sortable.min.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/descubre.js"></script>
+	<script type="text/javascript" src="js/vendor/spectrum/spectrum-1.4.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+body {
+	background: #cccccc; 
+}
+
+/* navbar */
+.navbar {
+	background: #333333;		
+	border:none;
+	height:60px;
+}
+/* title */
+.navbar .navbar-brand {
+    color: #FFF;
+	padding:0;
+	margin:0;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+    color: #FFF;
+}
+/* link */
+.navbar .navbar-nav > li > a {
+    color: #EEE;
+    background: #333333;
+    z-index:100;
+	font-size:16px;
+	padding-top:25px;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+    color: #EEE;
+    text-shadow: 1px 1px #000;
+    background-color: #222222;
+    height:64px;
+}
+.navbar .navbar-nav > .active > a, 
+.navbar .navbar-nav > .active > a:hover, 
+.navbar .navbar-nav > .active > a:focus {
+    color: #EEE;
+    text-shadow: 1px 1px #000;
+    background-color: #222222; /* #27b2dd; */
+    height:64px;
+}
+.navbar .navbar-nav > .open > a, 
+.navbar .navbar-nav > .open > a:hover, 
+.navbar .navbar-nav > .open > a:focus {
+    color: #EEE;
+    text-shadow: 1px 1px #000;
+    background-color: #27b2dd;
+    height:64px;
+}
+/* caret */
+.navbar .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+	.carousel h3 {
+		color: #9D0523;
+		background-color:rgba(240,240,240, 0.95);
+		padding:8px 8px;
+		text-align: right;
+		font-size: 20px;
+	}
+	
+	carousel p {
+		color: #9D0523;
+		background-color:rgba(240,240,240, 0.95);
+	}
+	
+	.carousel-inner > .item > img {
+	  margin: 0 auto;
+	  max-width:100%;
+	  height:auto;
+	}
+
+/**** EITK ****/
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+}
+/* Footer --------------------------------------------------------------------------- */
+
+.footer {
+	background-color: #333333;
+	font-size:0.9em;
+	color: #FFF;
+	height:192px;
+	padding-top:16px;
+}
+.footer a {
+	color: #fff;
+}
+
+	.CodeMirror {
+		float: left;		
+		font-size: 16px;
+		border: 1px solid #aaa;
+	}
+	#mycanvas {
+		background: #aaa;		
+		width:  100%;
+		padding: 0px;
+		margin: 0px;	
+			
+		border: 1px solid #aaa;
+	}
+	#mycanvas:focus { 
+		outline:none;
+	}
+	#mycanvas::-moz-focus-inner { 
+		border: none; 
+		}
+	#output:focus { 
+		outline: none; 
+	}
+	#output::-moz-focus-inner { 
+		border: none; 
+		}
+</style>
+</head>
+<body><!-- Static navbar -->
+
+ <!-- Static navbar -->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">
+		<img alt="Descubre la programación" src="images/descubre_logo.png">
+<!--      	
+ -->
+      </a>
+<!--	  
+ -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-collapse collapse" id="main-menu" >
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="editor-codigo.html">Crea</a></li>
+        <li ><a href="retos.html">Retos</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav><div class="modal fade bs-example-modal-lg " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		&nbsp;
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4">
+					<h4>Aspectos básicos</h4>
+					<div class="list-group">
+						<a class="list-group-item" target="_blank" href="editor-codigo1f60.html?id=2843a731d50cc1faeb18c37b6e9e15f4">void main() {...}</a>
+						<a class="list-group-item" target="_blank" href="editor-codigoda7a.html?id=f55c0e62dd95460257001631e943d92d">for ( int i = 0 ; i < N ; i++ ) {...}</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo0382.html?id=cffbd73a60b6acc675a4714f17063f72">while (condición) {...}</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo4e1b.html?id=892b2dcb48f71dd9f46d9b0fca68b681">do {...} while (condición);</a>
+						<a class="list-group-item" target="_blank" href="editor-codigocfd8.html?id=8c1b411ef2718f798b0b1fdc76d3c2bd">if (condición) {...}</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo8c4a.html?id=78ccbb5043c8afb525832bcd94f1d4bf">if (condición) {...} else {...}</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo035e.html?id=15fb10a69823a6d2fbeda8bc5ed15f96">switch (valor) {...}</a>
+					</div>					
+					<h5>Mostrar y pedir datos</h5>
+					<div class="list-group">
+						<a class="list-group-item" target="_blank" href="editor-codigoe6ca.html?id=1bd34e65e7b94699e6910416dfa11396">print()</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo1dbb.html?id=42e479e87cf2a862ac9a3c4e2ef34dc4">println()</a>						
+						<a class="list-group-item" target="_blank" href="editor-codigo12de.html?id=7fbb64ac6ac351fd0c4d121e29515bf3">readInteger()</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo65e0.html?id=6892f0eec96a4a5aba70410a0335ce94">readDouble()</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo6e80.html?id=24e7ca5081c0e8716e04ae2b9d447e02">readChar()</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo041c.html?id=9618b5655ee809f5fe3d96f823ac1d8e">readString()</a>
+					</div>			
+          </div>
+          <div class="col-md-4">
+					<h4>Funciones matemáticas</h4>
+					<div class="list-group">
+						<a class="list-group-item" target="_blank" href="editor-codigofca9.html?id=46f2c08ea0547d751719c68a140b79c7">abs(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo0649.html?id=d7538195e32e988df847ae5ac09f12c3">log(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo5132.html?id=55cc23c3084f8b849561d9af27bdb54b">sqrt(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo2e1e.html?id=b0443703085d417c7f35c65b24714341">pow(b,e)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo08ff.html?id=e9e870fcf22a9baed80c88408b009144">floor(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigoab29.html?id=b12d07f3b421c0e0a76acbcadff70c58">ceil(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo4d38.html?id=35553ecee848cb2b4e94e9f03e4a4489">round(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo4d2e.html?id=7fb7df3a517fb72846655f3e58d81c0f">sin(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo6a1e.html?id=34b06804695c76d1a4ef056515f39763">cos(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo14c1.html?id=38163f1c116056d27754f687f48dfdd1">tan(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigoc50d.html?id=6db41fe33b76b4bc5c7c683d92ea29c6">asin(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo645c.html?id=5a1ab543be062143cbec38396909626f">acos(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigod9fd.html?id=406b48809ffd31c2b1061981e4fb977f">atan(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigof8cf.html?id=0b11713511fe5c4848d0fb1a4f28b406">random(n)</a>
+					</div>
+          </div>
+          <div class="col-md-4">
+					<h4>Funciones gráficas</h4>
+					<div class="list-group">
+						<a class="list-group-item" target="_blank" href="editor-codigob836.html?id=d538ef20bffd47a578eb77a787ea6bc6">point(x,y)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo4554.html?id=08240c787347a1daaf1b7fb12c8fee54">line(x1,y1,x2,y2)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo73c8.html?id=f785f554553126f0791b96f67dd10944">ellipse(x,y,w,h)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo133e.html?id=ebb873089e023acf1ec61e63ab7a8230">rect(x,y,w,h)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo7423.html?id=927eb9ec5e91949fe75fad870e9e55e8">triangle(x1,y1,x2,y2,x3,y3)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigobae1.html?id=f81d945345b89e92ba70234795d0a5e2">text(msg,x,y)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigoe903.html?id=bf0f88834dca6c070c23c550725de786">textWidth(msg)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo0260.html?id=4a5b1076386229dda59e47b778b54e1f">textSize(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo7885.html?id=73d19b229244261ddc469f2d0e8ca75d">background(r,g,b,a)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo16dd.html?id=df62d55d9b343380e3dfd42061b32960">strokeWeight(n)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo5a48.html?id=3cba92214d5d7c9da6e76c3b0e2435c4">stroke(r,g,b,a)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigobf6d.html?id=21444ff14f20bb561b93c4428e703416">noStroke()</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo0dca.html?id=9bec0eea661130195a996b76204e879b">fill(r,g,b,a)</a>
+						<a class="list-group-item" target="_blank" href="editor-codigo21e9.html?id=0264856f5ab93da00f7a9a17dacbe59b">noFill()</a>
+						<a class="list-group-item" target="_blank" href="editor-codigoef8a.html?id=70701d14a525d96e05c7f98f7a09fd4e">image(url, x,y,w,h)</a>
+					</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div id="colorpicker-div"></div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-8 ">
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-primary" type="button" id="buttonNew" title="Pulsa para crear un programa nuevo">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo
+						</button>
+					</span>
+					<input class="form-control" type="text" id="title" name="title" tabindex=1 autofocus placeholder="Título del programa" value="" >
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4 col-xs-4">
+			<div class="form-group">
+<!--
+				<div class="btn-group pull-left" role="group" aria-label="...">
+			        <div class="alert well-sm alert-success alert-sm" id="result-ok" style="opacity:0; " >
+			        </div>
+			    </div>
+-->
+				<button type="button" class="btn btn-primary" id="crack">Convertir a JS</button>
+				
+				<div class="btn-group pull-right" role="group" aria-label="...">
+					<button class="btn btn-primary " type="button" id="buttonRun" title="Pulsa para probar el programa" tabindex=3 >
+					<span class="glyphicon glyphicon-play" aria-hidden="true" id="buttonRunGlyph"></span> <span id="buttonRunText">Probar</span></button>
+				</div>
+			</div>
+		</div>		
+	</div>
+	
+	<div class="collapse" id="result" >
+	  <div id="result-content" class="alert">
+	  ...
+	  </div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<textarea id="textarea-editor" name="content" class="ed form-control" rows="16" tabindex=2 ></textarea>
+					</div>		
+				</div>		
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					&nbsp;
+					<textarea id="output" rows="5" readonly style="font: 14px Courier New; height: 158px; width: 100%; display:none;"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="compileroutput">
+					</div>
+				</div>
+			</div>
+		</div>		
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="canvascontainer">
+						<canvas id="mycanvas" width="320" height="320">Canvas not supported.</canvas>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group ">
+							
+						</div>
+					</div>		
+				</div>		
+			</div>
+		</div>		
+	</div>
+</div>
+&nbsp;
+<div class="container-fluid footer">
+	<div class="row">
+		<div class="col-md-6">
+			<a href="http://www.um.es/"><img src="images/logo_umu.png" height="54"  title="Universidad de Murcia"/></a>              
+			<a href="http://www.um.es/informatica/"><img src="images/logo_fi.png" height="54"  title="Facultad de Inform&aacute;tica de la Universidad de Murcia"/> </a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<p class="pull-right">&#169; 2015 Universidad de Murcia - Facultad de Inform&aacute;tica</p>	
+		</div>
+		<div class="col-md-12">
+			<p class="pull-right">Versión no oficial de Julio Meroño Sáez del original: <a href="http://descubre.inf.um.es/">descubre.inf.um.es</a></p>		
+		</div>
+	</div>
+</div>
+</body>
+
+<script>
+var programID = -1;
+var editor = null;
+
+$(document).ready(
+function() {
+	$("#title").on("change", function(event) {
+		$("#buttonSave").removeClass("disabled");
+	});    
+	
+	// type must be alert-success, alert-warning, alert-info, or alert-danger
+	function show( msg, type ) {
+		if ( $("#result").hiddenTimer ) clearTimeout($("#result").hiddenTimer);
+		$("#result").collapse("hide");		
+		$("#result-content").removeClass(); // Remove all classes
+		$("#result-content").addClass("alert " + type);
+		$("#result-content").text( msg );
+		$("#result").collapse("show");		
+	}
+		
+	$("#result").on('shown.bs.collapse', function(){
+		$(this).hiddenTimer = setTimeout(function() {
+			$("#result").collapse("hide");
+		}, 5000);
+    });    
+
+	var gui = {
+		onCodeChange: function() {
+			$("#buttonSave").removeClass("disabled");
+		},
+		onProgramStarted: function() {
+			$("#buttonRunText").text("Parar");
+			$("#buttonRunGlyph").removeClass("glyphicon-play");
+			$("#buttonRunGlyph").addClass("glyphicon-stop");			
+			var id = $(this).parent().attr('id');
+		  	var visibility = $(this).children().val();
+			$.post( "services/programs.html", { service: "run", id: programID },
+				function( res ) {		
+				}
+			);
+		},
+		onProgramStopped: function() {
+			$("#buttonRunText").text("Probar");
+			$("#buttonRunGlyph").removeClass("glyphicon-stop");			
+			$("#buttonRunGlyph").addClass("glyphicon-play");
+		}
+	};
+	
+    editor = new iJavaEditor("textarea-editor", "mycanvas", "output", "compileroutput", gui);
+    
+	$("#buttonNew").on("click", function(event) {
+		window.location.href = "editor-codigo.html";
+	});   
+	
+	$("#crack").on("click", function(event) {
+		document.getElementById("output").innerHTML = (editor.getcode());
+		document.getElementById("output").style.display = "inline";
+	});
+	
+	// Guardar o versionar según el caso
+	$("#buttonSave").on("click", function(event) {
+		if ( $(this).hasClass("disabled") ) return;
+		
+		var title = $("#title").val();
+		// Invocar servicio de guardado
+		// TODO: Convertir en llamada post para reducir código
+		var formData = new FormData();
+    	formData.append("id", programID);
+    	formData.append("service", "save");
+    	formData.append("title", title);
+    	formData.append("code", editor.getValue());    	
+    	formData.append("visibility", 1); 
+    	formData.append("keypoints", JSON.stringify( editor.getKeyPoints() ) );
+	    $.ajax({
+	    	async: false,
+	        url: "services/programs.php",
+	        type: "post",
+	        dataType: "html",
+	        data: formData,
+	        cache: false,
+	        contentType: false,
+			processData: false
+	    }).done(function(res){
+	    	try {
+		    	var response = JSON.parse( res );
+		    	if ( response.id != -1 ) {
+					show ( "¡Programa guardado!", "alert-success" );
+					$("#buttonSaveText").text(" Guardar");
+					$("#buttonSave").addClass("disabled");
+					programID = response.id;
+		    	} else {
+		    		show( response.msg, "alert-danger");
+		    		return;
+		    	}
+	    	} catch ( e ) {
+	    		alert( "Error al guardar el programa en el servidor." );
+		    	console.log(res);
+	    	}
+	    });		
+	});    
+	
+	$("#buttonRun").on("click", function( event ) {
+		editor.run();
+	});    
+
+	var votado = false;
+		
+	var voteIconIn = function( ) {
+		if ( votado ) {
+		    $("#vote-icon").removeClass('glyphicon-check');
+		    $("#vote-icon").addClass('glyphicon-unchecked');	    
+		} else {
+		    $("#vote-icon").removeClass('glyphicon-unchecked');
+		    $("#vote-icon").addClass('glyphicon-check');	    
+		}
+	}
+		
+	var voteIconOut = function( ) {
+		if ( votado ) {
+		    $("#vote-icon").removeClass('glyphicon-unchecked');
+		    $("#vote-icon").addClass('glyphicon-check');	    
+		} else {
+		    $("#vote-icon").removeClass('glyphicon-check');
+		    $("#vote-icon").addClass('glyphicon-unchecked');	    
+		}
+	}
+
+	$("#vote-icon").hover(voteIconIn, voteIconOut);
+	
+	$("#vote-icon").on("click", function( event )  {
+		$.post( "services/programs.html", { service: "vote", id: programID },
+			function( res ) {				
+		    	try {
+			    	var response = JSON.parse( res );
+			    	if ( response.id != -1 ) {
+			    		votado = !votado;
+					    $("#vote-icon").removeClass('glyphicon-unchecked');
+					    $("#vote-icon").addClass('glyphicon-check');	    
+					    $("#nvotes").text(response.votes);
+			    	} else {
+			    		show( response.msg, "alert-danger");
+			    		return;
+			    	}
+		    	} catch ( e ) {
+		    		alert( "Error al modificar el programa en el servidor." );
+			    	console.log(res);
+		    	}
+			}
+		);		
+	});
+     
+	window.addEventListener("beforeunload", function(e){
+		$.post( "services/programs.html", { service: "type", id: programID, ms: editor.getTypingTime() },
+			function( res ) {				
+				// TODO:  Anular porque, en ningún caso informa al usuario		
+		    	try {
+			    	var response = JSON.parse( res );
+			    	if ( response.id != -1 ) {
+				    	console.log("Programa " + response.id + " modificado!");
+			    	} else {
+			    		console.log( response.msg );
+			    		return;
+			    	}
+		    	} catch ( e ) {
+		    		alert( "Error al modificar el programa en el servidor." );
+			    	console.log(res);
+		    	}
+			}
+		);
+	}, false);
+});
+
+</script>
+
+<!-- Mirrored from descubre.inf.um.es/editor-codigo.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Feb 2020 14:49:38 GMT -->
+</html>
