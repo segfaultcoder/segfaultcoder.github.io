@@ -1,3 +1,4 @@
+ 
 <html>
   <head>
     <title>segfaultcoder's webpage</title>
@@ -10,19 +11,37 @@
         border: 0px;
         padding: 0px;
       }
+
+      body {
+        background-color: #e0e0e0;
+      }
       
       h1 {
         color: #3f3fff;
       }
-      
+
       .top {
         background-color: #ffffff;
         position: fixed;
         top: 0;
         width: 100%;
-        z-index: 100;
-        padding: 10px;
-        border-bottom: 4px solid black;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .top-child {
+        background-color: #ffffff;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 10px;
+        margin-left: 10px;
       }
       
       .topic {
@@ -34,13 +53,30 @@
       }
       
       .barelement {
-        float: right;
-        background-color: #ff0000;
+        background-color: #ffffff;
+        order: -1;
+      }
+
+      .barelement-right {
+        background-color: #ffffff;
+      }
+
+      .button-link {
+        color: #000000;
+        text-decoration: none;
+      }
+      
+      .button-link:hover {
+        text-decoration: underline;
       }
     </style>
     <div class="top">
-      <h1>segfaultcoder's webpage</h1>
-      <button class="barelement">Prez me</button>
+      <div class="top-child">
+        <h1 class="barelement">segfaultcoder's webpage</h1>
+        <div class="barelement-right">
+          <a href="boi" class="button-link">Hello</a>
+        </div>
+      </div>
     </div>
     <div class="content">
       <br><br><br><br><br>
