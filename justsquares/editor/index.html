@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>justsquares structure editor</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      body {
+        text-align: center;
+        display: inline-block;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://github.com/processing/p5.js/releases/download/1.0.0/p5.min.js"></script>
+    <script>
+      let imgarray;
+      let slot = 0;
+      let struct = [];
+      let pmouse = false;
+
+      function crop(image, x, y, w, h) {
+        let cropped = createImage(w, h);
+        cropped.copy(image, x, y, x + w, y + h, 0, 0, x + w, y + h)
+        return cropped;
+      }
+
+      function preload() {
+        imgarray = loadImage("https://i.ibb.co/WVSjY05/blocks.png");
+      }
+
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+        noSmooth();
+        for (let c = 0; c < 2; c++) {
+          let substruct = [];
+          for (let i = 0; i < 7; i++) {
+            let row = [];
+            for (let j = 0; j < 9; j++) {
+              row.push(0);
+            }
+            substruct.push(row);
+          }
+          struct.push(substruct);
+        }
+      }
+
+      function draw() {
+        background(0, 255, 255);
+        for (let i = 0; i < 26; i++) {
+          let selblock;
+          if (i == 0) {
+            selblock = new p5.Image(8, 8);
+          } else {
+            let ind = i - 1;
+            selblock = crop(imgarray, ((ind%5)*48)+8, (floor(ind/5)*24)+8, 8, 8);
+          }
+          noStroke();
+          if (mouseX < 32 && mouseY >= 32*i && mouseY < 32*(i+1)) {
+            noFill();
+            stroke(255);
+            strokeWeight(4);
+            rect(0, 32*i, 32, 32);
+            if (mouseIsPressed) {
+              slot = i;
+            }
+          } else if (slot == i) {
+            noFill();
+            stroke(255, 255, 0);
+            strokeWeight(4);
+            rect(0, 32*i, 32, 32);
+          }
+          image(selblock, 0, 32*i, 32, 32);
+        }
+        for (let i = 0; i < 7; i++) {
+          for (let j = 0; j < 9; j++) {
+            let b = struct[0][i][j];
+            if (b == 0) {
+              selblock = new p5.Image(8, 8);
+            } else {
+              let ind = b - 1;
+              selblock = crop(imgarray, ((ind%5)*48)+8, (floor(ind/5)*24)+8, 8, 8);
+            }
+            noFill();
+            stroke(0);
+            strokeWeight(4);
+            rect(100 + 32*j, 100 + 32*i, 32, 32);
+            image(selblock, 100 + 32*j, 100 + 32*i, 32, 32);
+            if (mouseIsPressed) {
+              if (mouseX >= 100 + 32*j && mouseY >= 100 + 32*i) {
+                if (mouseX < 100 + 32*(j+1) && mouseY < 100 + 32*(i+1)) {
+                  struct[0][i][j] = slot;
+                }
+              }
+            }
+          }
+        }
+
+        for (let i = 0; i < 7; i++) {
+          for (let j = 0; j < 9; j++) {
+            let b = struct[1][i][j];
+            if (b == 0) {
+              selblock = new p5.Image(8, 8);
+            } else {
+              let ind = b - 1;
+              selblock = crop(imgarray, ((ind%5)*48)+8, (floor(ind/5)*24)+8, 8, 8);
+            }
+            noFill();
+            stroke(0);
+            strokeWeight(4);
+            rect(400 + 32*j, 100 + 32*i, 32, 32);
+            image(selblock, 400 + 32*j, 100 + 32*i, 32, 32);
+            if (mouseIsPressed) {
+              if (mouseX >= 400 + 32*j && mouseY >= 100 + 32*i) {
+                if (mouseX < 400 + 32*(j+1) && mouseY < 100 + 32*(i+1)) {
+                  struct[1][i][j] = slot;
+                }
+              }
+            }
+          }
+        }
+
+        fill(191);
+        if (mouseX >= 100 && mouseY >= 20) {
+          if (mouseX < 688 && mouseY < 80) {
+            fill(255);
+            if (mouseIsPressed) {
+              fill(127);
+              if (!pmouse) {
+                let jsoncode = "";
+                
+                console.log(jsoncode);
+              }
+            }
+          }
+        }
+        pmouse = mouseIsPressed;
+        stroke(0);
+        rect(100, 20, 588, 60);
+        fill(0);
+        noStroke();
+        //textMode(CENTER);
+        text("EXPORT STRUCTURE", 394 - (textWidth("EXPORT STRUCTURE")/2), 50 + 4);
+      }
+    </script>
+  </body>
+</html>
